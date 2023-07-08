@@ -1,2 +1,6 @@
-# stockify
-Introducing Stockify: a frontend-heavy stock market visualizer app powered by Spring Boot Java. Analyze real-time data from MySQL, track stocks, use advanced charting tools, and receive customizable alerts. Seamlessly navigate trends and make informed investment decisions. Stockify - your ultimate visual stock companion.
+# SocgenPhase3Project
+Frontend end with Angular and Bootstrap
+Backend With SpringBoot 
+![Image #1](/Users/pvb/MyProjects/stock-market-visualizer/Screenshots/Screenshot (149).png)
+![Image #2](/Users/pvb/MyProjects/stock-market-visualizer/Screenshots/Screenshot (157).png)
+![Image #2](/Users/pvb/MyProjects/stock-market-visualizer/Screenshots/Screenshot (159).png)

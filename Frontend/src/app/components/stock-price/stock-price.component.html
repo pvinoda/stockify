@@ -1,0 +1,36 @@
+<hr />
+<a routerLink="/import-excel" class="btn btn-primary">Import Data</a>
+<br />
+<br />
+
+<table
+  *ngIf="stockPrices?.length > 0; else noStockPrices"
+  class="table table-light"
+>
+  <thead class="thead-inverse thead-dark">
+    <tr>
+      <th>Id</th>
+      <th>Company Code</th>
+      <th>Price</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Exchange Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let stockPrice of stockPrices">
+      <td>{{ stockPrice.id }}</td>
+      <td>{{ stockPrice.companycode }}</td>
+      <td>{{ stockPrice.shareprice }}</td>
+      <td>{{ stockPrice.datee }}</td>
+      <td>{{ stockPrice.timee }}</td>
+      <td>{{ stockPrice.exchangename }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #noStockPrices>
+  <br />
+  <br />
+  <h5>There are no Stock Price in the system.</h5>
+</ng-template>

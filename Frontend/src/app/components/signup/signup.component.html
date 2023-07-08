@@ -1,0 +1,129 @@
+<div class="row">
+  <div class="col-md-6 mx-auto">
+    <div class="card">
+      <div class="card-body">
+        <h1 class="text-center pb-4 pt-3">
+          <span class="text-primary"> <i class="fa fa-lock"></i> User </span>
+          SignUp
+        </h1>
+
+        <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              name="name"
+              placeholder="name"
+              #name="ngModel"
+              [ngClass]="{ 'is-invalid': name.errors && name.touched }"
+              [(ngModel)]="user.name"
+              minlength="2"
+              required
+            />
+            <div [hidden]="!name.errors?.required" class="invalid-feedback">
+              name required
+            </div>
+            <div [hidden]="!name.errors?.minlength" class="invalid-feedback">
+              Must be atleast 2 characters
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input
+              type="password"
+              class="form-control"
+              name="password"
+              placeholder="Password"
+              #password="ngModel"
+              [ngClass]="{ 'is-invalid': password.errors && password.touched }"
+              [(ngModel)]="user.password"
+              minlength="4"
+              required
+            />
+            <div [hidden]="!password.errors?.required" class="invalid-feedback">
+              Password required
+            </div>
+            <div
+              [hidden]="!password.errors?.minlength"
+              class="invalid-feedback"
+            >
+              Must be atleast 2 characters
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input
+              type="email"
+              class="form-control"
+              name="email"
+              placeholder="Email"
+              #email="ngModel"
+              [ngClass]="{ 'is-invalid': email.errors && email.touched }"
+              [(ngModel)]="user.email"
+              pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
+              required
+            />
+            <div [hidden]="!email.errors?.required" class="invalid-feedback">
+              Email required
+            </div>
+            <div [hidden]="!email.errors?.pattern" class="invalid-feedback">
+              Email is invalid
+            </div>
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              name="admin"
+              placeholder="admin true or false"
+              #admin="ngModel"
+              [ngClass]="{ 'is-invalid': admin.errors && admin.touched }"
+              [(ngModel)]="user.admin"
+              minlength="0"
+              maxlength="10"
+              required
+            />
+            <div [hidden]="!admin.errors?.required" class="invalid-feedback">
+              admin value required
+            </div>
+            <div
+              [hidden]="!admin.errors?.minlength && !admin.errors?.maxlength"
+              class="invalid-feedback"
+            >
+              Invalid admin value
+            </div>
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              name="role"
+              placeholder="role "
+              #role="ngModel"
+              [ngClass]="{ 'is-invalid': role.errors && role.touched }"
+              [(ngModel)]="user.role"
+              minlength="3"
+              maxlength="15"
+              required
+            />
+            <div [hidden]="!role.errors?.required" class="invalid-feedback">
+              role required
+            </div>
+            <div
+              [hidden]="!role.errors?.minlength && !role.errors?.maxlength"
+              class="invalid-feedback"
+            >
+              Invalid role
+            </div>
+          </div>
+
+          <input
+            type="submit"
+            value="Submit"
+            class="btn btn-primary btn-block"
+          />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

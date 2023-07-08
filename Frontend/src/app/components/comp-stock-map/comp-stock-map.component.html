@@ -1,0 +1,48 @@
+<hr />
+<a routerLink="/create-comp-stock-map" class="btn btn-primary"
+  >Add New Company Stock Mappings</a
+>
+<br />
+<br />
+
+<table
+  *ngIf="compstockmaps?.length > 0; else noCompanies"
+  class="table table-light"
+>
+  <thead class="thead-inverse thead-dark">
+    <tr>
+      <th>Company Code</th>
+      <th>Company Name</th>
+      <th>StockExchange Name</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let maps of compstockmaps">
+      <td>{{ maps.companycode }}</td>
+      <td>{{ maps.companyname }}</td>
+      <td>{{ maps.stockexchangename }}</td>
+      <td>
+        <a
+          routerLink="edit-company/{{ maps.id }}"
+          class="btn btn-secondary btn-sm"
+        >
+          <i class="fa fa-pencil"></i> Edit
+        </a>
+      </td>
+      <td>
+        <button
+          (click)="onDeleteClick(company.id)"
+          class="btn btn-secondary btn-sm"
+        >
+          <i class="fa fa-trash"></i> Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #noCompanies>
+  <h5>There are no mappings in system.</h5>
+</ng-template>
